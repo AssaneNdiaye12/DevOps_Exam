@@ -25,9 +25,7 @@ def get_db():
         db.close()
 
 
-# ═══════════════════════════════════════
 #  LIVRES
-# ═══════════════════════════════════════
 
 @app.post("/api/livres/", response_model=schemas.Livre)
 def creer_livre(livre: schemas.LivreCreate, db: Session = Depends(get_db)):
@@ -63,9 +61,7 @@ def supprimer_livre(livre_id: int, db: Session = Depends(get_db)):
     return {"message": "Livre supprimé avec succès"}
 
 
-# ═══════════════════════════════════════
 #  UTILISATEURS
-# ═══════════════════════════════════════
 
 @app.post("/api/utilisateurs/", response_model=schemas.Utilisateur)
 def creer_utilisateur(user: schemas.UtilisateurCreate, db: Session = Depends(get_db)):
@@ -88,9 +84,7 @@ def supprimer_utilisateur(user_id: int, db: Session = Depends(get_db)):
     return {"message": "Utilisateur supprimé avec succès"}
 
 
-# ═══════════════════════════════════════
 #  EMPRUNTS
-# ═══════════════════════════════════════
 
 @app.post("/api/emprunts/", response_model=schemas.Emprunt)
 def creer_emprunt(emprunt: schemas.EmpruntCreate, db: Session = Depends(get_db)):
